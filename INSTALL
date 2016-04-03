@@ -1,0 +1,72 @@
+
+= Octave =
+
+sudo add-apt-repository ppa:octave/stable
+sudo apt-get install octave
+
+= TODO =
+
+* Determine which octave pakages to install (sudo apt-get install octave* does not work because of dependency issues with some)
+* https://www.mediawiki.org/wiki/JQuery
+* https://www.mediawiki.org/wiki/Extension:GitHub
+* https://www.mediawiki.org/wiki/Extension:Add_HTML_Meta_and_Title
+* https://www.mediawiki.org/wiki/Manual:Interface/JavaScript
+* https://www.mediawiki.org/wiki/Manual:Combating_spam
+* Save DB and change instructions to remove need to install from web page
+
+= Chrome =
+
+Install last version of
+http://commondatastorage.googleapis.com/chromium-browser-continuous/index.html?prefix=Linux/
+
+(VirtualBox has special requirements for 64-bit OS and Google dropped support for 32 bit in 2015 or so.)
+
+= Parsoid =
+https://www.mediawiki.org/wiki/Parsoid/Setup
+
+ sudo apt-key advanced --keyserver keys.gnupg.net --recv-keys 664C383A3566A3481B942F007A322AC6E84AFDD2
+ sudo apt-key advanced --keyserver keys.gnupg.net --recv-keys 664C383A3566A3481B942F007A322AC6E84AFDD2
+ sudo apt-add-repository "deb https://releases.wikimedia.org/debian jessie-mediawiki main"
+ sudo apt-get install curl
+ cd ~;
+ sudo ln -s mediawiki-tools/settings.js /etc/mediawiki/parsoid/settings.js
+ ln -s /var/log/parsoid/parsoid.log log/
+ sudo chmod 744 log/parsoid.log 
+
+= LAMP =
+
+See also https://www.mediawiki.org/wiki/Manual:Installation_requirements https://www.mediawiki.org/wiki/Apache_configuration, and https://help.ubuntu.com/community/ApacheMySQLPHP
+ apt-get install apache2 libapache2-mod-php5 php5-cli php-apc php5-mcrypt
+ sudo apt-get apache2ctl restart
+ sudo apt-get install mysql-client-core-5.5
+ sudo apg-get install mysql-server-core-5.5
+ sudo apt-get install php5-curl
+ sudo service apache2 restart
+ sudo apt-get a2enmod php5
+ cd ~
+ ln -s /var/log/apache2/error.log log/
+ ln -s /var/log/apache2/access.log log/
+
+= MediaWiki =
+
+See https://www.mediawiki.org/wiki/Download_from_Git
+ cd ~
+ git clone https://gerrit.wikimedia.org/r/p/mediawiki/core.git
+ mv core mediawiki
+ sudo chmod 777 mediawiki/images
+
+Then install mediawiki using http://localhost/
+
+ ln -s mediawiki-tools/LocalSettings.php mediawiki/LocalSettings.php
+
+= MathJax =
+
+ cd mediawiki-tools/MathJax
+ git pull https://github.com/mathjax/MathJax.git
+ ln -s MathJax ~/mediawiki/MathJax-src
+
+= nodemw =
+
+ sudo apt-get install npm
+ git clone https://github.com/macbre/nodemw.git
+ cd nodemw; npm install
