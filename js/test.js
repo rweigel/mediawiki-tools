@@ -1,7 +1,7 @@
 jQuery( function ( $ ) {
 
     $( document ).ready( function () {
-	alert('here');
+	console.log('test.js loaded');
     })
 
 })

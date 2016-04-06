@@ -163,7 +163,7 @@ $wgHooks['BeforePageDisplay'][] ='onBeforePageDisplay';
 
 function onBeforePageDisplay( OutputPage &$out, Skin &$skin )
 {
-    $script  = '<script src="/js/jquery-2.2.2.min.js"></script>';
+    $script  = '<script src="/js/deps/jquery-2.2.2.min.js"></script>';
     $script .= '<script src="/js/test.js"></script>';
     $out->addHeadItem("jquery test", $script);
     return true;

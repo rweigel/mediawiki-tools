@@ -1,4 +1,16 @@
 
+https://radu.cotescu.com/remapping-keys-in-ubuntu-14.04/
+
+= Keyboard =
+
+From https://radu.cotescu.com/remapping-keys-in-ubuntu-14.04/: Add to <code>/usr/share/X11/xkb/symbols/</code>
+ key <LCTL> {    [ Super_L       ]   };
+ key <LWIN> {    [ Control_L     ]   };
+ key <RCTL> {    [ Super_R       ]   };
+ key <RWIN> {    [ Control_R     ]   };
+then
+ rm -rf /var/lib/xkb/*
+After re-starting X session, should work.
 = Octave =
 
 sudo add-apt-repository ppa:octave/stable
